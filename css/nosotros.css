@@ -25,43 +25,21 @@
 @media(max-width:800px){.process-image-pending{height:58vh}.oaxaca-map-stage{width:980px;min-width:980px}.oaxaca-map-stage>img{width:980px;max-width:none}.masters{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.master-card{height:320px}.master-base{left:14px;right:14px;bottom:14px}.master-base strong{font-size:1.15rem}.master-hover img{max-width:105px}.community-copy-slider{min-height:560px}.map-hotspot{display:block}}
 @media(max-width:520px){.masters{grid-template-columns:1fr 1fr}.master-card{height:290px}}
 
-/* V8 — mobile-first refinements: hero, process, Oaxaca map */
-@media (max-width:800px){
-  .n-hero{height:78svh;min-height:560px;max-height:760px;background:#111}
-  .n-hero>img{transform:none;width:100%;height:100%;object-fit:cover;object-position:center 28%}
-  .n-scroll{bottom:3.5vh}
-
-  .process-pdf{padding:7vh 0 5vh}
-  .pdf-section-head{margin-bottom:3vh;padding:0 7vw}
-  .pdf-section-head h2{font-size:clamp(2.65rem,12vw,4rem);line-height:.92;margin-bottom:.8rem}
-  .process-slide{display:flex;flex-direction:column;background:#eee8de;min-height:auto}
-  .process-slide>div{order:1;padding:5vh 7vw 4vh;align-self:stretch}
-  .process-slide h3{font-size:clamp(2.15rem,9.2vw,3.25rem);line-height:.92;margin:0 0 1rem;max-width:92%}
-  .process-slide p{font-size:.86rem;line-height:1.65;margin:0}
-  .process-slide p+p{margin-top:.8rem}
-  .process-slide>img,.process-image-pending{order:2;width:100%;height:52svh;min-height:360px;max-height:560px;object-fit:cover}
-  .process-slider>.prev,.process-slider>.next{top:auto;bottom:calc(26svh - 24px)}
-  .process-slider>.prev{left:14px}.process-slider>.next{right:14px}
-  .slider-dots{padding:16px 12px 8px}
-
-  .communities-pdf{padding-top:7vh}
-  .community-copy-slider{min-height:auto;padding:2rem 7vw 5rem}
-  .community-copy h3{font-size:clamp(2.5rem,11vw,3.8rem);line-height:.92;margin-bottom:1.25rem}
-  .community-copy p{font-size:.86rem;line-height:1.65}
-  .interactive-oaxaca{margin-top:1.5rem;overflow:hidden;width:100%;background:#000}
-  .oaxaca-map-stage{width:100%;min-width:0;aspect-ratio:1/1;overflow:hidden;position:relative}
-  .oaxaca-map-stage>img{width:100%;height:100%;max-width:none;object-fit:contain;object-position:center;display:block}
-  .map-hotspot{width:14px;height:14px;border-width:1.5px;box-shadow:0 0 0 4px rgba(255,255,255,.18)}
-  .map-hotspot:hover,.map-hotspot.active{transform:translate(-50%,-50%) scale(1.2);box-shadow:0 0 0 5px rgba(255,255,255,.22)}
-  .masters-panel{padding:0 5vw}
-  .masters{grid-template-columns:1fr;gap:12px}
-  .master-card{height:56svh;min-height:390px;max-height:560px}
-  .master-card>img{object-position:center 24%}
+/* V9 — Comunidades: territorio → personas → mapa */
+.communities-v9{padding:12vh 5vw;background:#f5f1e9;color:#171610;overflow:hidden}
+.community-kicker,.community-label{font:300 .68rem/1.4 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#746d61}
+.community-v9-shell{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(430px,.92fr);gap:5vw;align-items:start}
+.community-v9-content{min-width:0}.community-page{display:none}.community-page.active{display:block;animation:communityIn .55s ease both}.community-story h3{font:600 clamp(3.2rem,5.3vw,6rem)/.88 'Cormorant Garamond',serif;margin:0 0 1.5rem}.community-story h3 em{font-style:italic}.community-story>p{font:italic 300 .96rem/1.85 Inter,sans-serif;max-width:700px;margin:0}.read-more{display:none}
+.community-masters{margin-top:3.2rem}.community-masters>.masters{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:1rem 0 0;max-width:none}.community-masters .master-card{height:390px}.community-location-mobile{display:none}
+.community-map-desktop{position:sticky;top:100px}.community-map-desktop .community-label{margin:0 0 1rem}.community-map-desktop .oaxaca-map-stage{background:#111;overflow:hidden}.community-map-desktop .oaxaca-map-stage img{width:100%;display:block}.community-map-desktop .map-hotspot{display:block}
+.community-travel{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid #cfc7b9;display:flex;align-items:center;justify-content:space-between;gap:1rem}.community-travel button{border:0;background:transparent;padding:.75rem 0;font:300 .72rem Inter,sans-serif;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}.community-travel strong{font:300 .72rem Inter,sans-serif;color:#746d61}
+.map-modal{position:fixed;inset:0;z-index:10020;padding:18px;display:grid;place-items:center}.map-modal[hidden]{display:none!important}.map-modal-backdrop{position:absolute;inset:0;background:rgba(15,14,11,.9);backdrop-filter:blur(8px)}.map-modal-panel{position:relative;width:min(920px,100%);max-height:92svh;overflow:auto;background:#f5f1e9;padding:24px}.map-modal-head{display:flex;align-items:start;justify-content:space-between;gap:20px}.map-modal-head h3{font:600 clamp(2.2rem,6vw,4rem)/.95 'Cormorant Garamond',serif;margin:.2rem 0 1.5rem}.map-modal-close{border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer}.map-modal-stage{position:relative;background:#111}.map-modal-stage img{width:100%;display:block}.map-modal-stage .map-hotspot{display:block}.map-modal-help{font:italic 300 .75rem/1.5 Inter,sans-serif;text-align:center;color:#746d61;margin:1rem 0 0}
+@media(max-width:800px){
+ .communities-v9{padding:9vh 0}.communities-v9 .pdf-section-head{padding:0 7vw;margin-bottom:5vh}.communities-v9 .pdf-section-head h2{font-size:clamp(3rem,14vw,4.8rem)}
+ .community-v9-shell{display:block}.community-v9-content{width:100%}.community-page{padding:0 7vw}
+ .community-story h3{font-size:clamp(2.9rem,13vw,4.5rem);margin-bottom:1.1rem}.community-story>p{font-size:.88rem;line-height:1.75;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden}.community-story.expanded>p{-webkit-line-clamp:unset;display:block}.read-more{display:inline-block;border:0;border-bottom:1px solid #777;background:transparent;padding:.65rem 0 .2rem;margin-top:.35rem;font:300 .68rem Inter,sans-serif;text-transform:uppercase;letter-spacing:.1em}
+ .community-masters{margin-top:2.4rem}.community-masters>.masters{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:1rem -7vw 0;padding:0 7vw 8px;scrollbar-width:none}.community-masters>.masters::-webkit-scrollbar{display:none}.community-masters .master-card{flex:0 0 min(78vw,330px);height:430px;scroll-snap-align:center}.community-masters .master-card>img{object-position:center top}.community-masters .master-base strong{font-size:1.25rem}
+ .community-location-mobile{display:block;margin-top:2.7rem}.mini-map{position:relative;margin-top:.9rem;background:#111;overflow:hidden}.mini-map img{width:100%;height:auto;display:block}.mini-point{position:absolute;width:14px;height:14px;border:2px solid #fff;border-radius:50%;background:#171610;box-shadow:0 0 0 5px rgba(255,255,255,.22);left:52.7%;top:56.5%;transform:translate(-50%,-50%)}.explore-map{width:100%;border:1px solid #2e2b26;background:transparent;padding:14px;margin-top:10px;font:300 .68rem Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+ .community-map-desktop{display:none}.community-travel{margin:2rem 7vw 0;padding-top:1rem}.community-travel button span{display:inline}.map-modal{padding:0}.map-modal-panel{width:100%;height:100svh;max-height:none;padding:22px 18px;display:flex;flex-direction:column;justify-content:center}.map-modal-stage{width:100%;overflow:hidden}.map-modal-stage img{width:100%;height:auto}.map-modal-stage .map-hotspot{width:14px;height:14px;box-shadow:0 0 0 4px rgba(255,255,255,.2)}
 }
-@media (max-width:430px){
-  .n-hero{height:74svh;min-height:520px}
-  .n-hero>img{object-position:center 30%}
-  .process-slide>img,.process-image-pending{height:48svh;min-height:330px}
-  .process-slider>.prev,.process-slider>.next{bottom:calc(24svh - 24px)}
-  .oaxaca-map-stage{aspect-ratio:1/1.08}
-}
+@media(max-width:420px){.community-masters .master-card{flex-basis:82vw;height:400px}.community-travel button{font-size:.62rem}.community-story h3{font-size:clamp(2.6rem,12.5vw,3.8rem)}}
