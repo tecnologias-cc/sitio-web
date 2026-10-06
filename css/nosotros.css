@@ -113,3 +113,9 @@ body.map-opened{overflow:hidden}
     max-width:480px;
   }
 }
+
+/* V12 — marcas reales de maestros */
+.master-hover .master-brands{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;width:100%}
+.master-hover .master-brands img{width:auto;max-width:135px;max-height:64px;object-fit:contain}
+.master-hover .master-brands img[alt="Agave de Cortés"]{background:rgba(255,255,255,.9);padding:8px 10px;box-sizing:border-box}
+@media(max-width:800px){.master-hover .master-brands{gap:12px}.master-hover .master-brands img{max-width:105px;max-height:52px}}
