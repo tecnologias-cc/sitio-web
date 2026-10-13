@@ -1,0 +1,13 @@
+/* Casa Cortés — editorial motion, progressive enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  /* Los elementos permanecen visibles incluso si el observador no se ejecuta.
+     La animación es una mejora progresiva, nunca un requisito para leer el sitio. */
+  .cc-motion-ready .cc-reveal-title.cc-inview{animation:cc-title-in .8s cubic-bezier(.22,1,.36,1) both}
+  .cc-motion-ready .cc-reveal-copy.cc-inview{animation:cc-copy-in .8s cubic-bezier(.22,1,.36,1) both}
+  .cc-motion-ready .cc-reveal-group.cc-inview{animation:cc-copy-in .8s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--cc-stagger,0ms)}
+  .cc-motion-ready .cc-reveal-bottle.cc-inview{animation:cc-bottle-in .9s cubic-bezier(.22,1,.36,1) both}
+  @keyframes cc-title-in{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(16px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(0)}}
+  @keyframes cc-copy-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes cc-bottle-in{from{opacity:0;transform:translateY(24px) scale(.955);filter:brightness(.88) drop-shadow(0 14px 14px rgba(0,0,0,.12))}to{opacity:1;transform:translateY(0) scale(1);filter:brightness(1) drop-shadow(0 20px 18px rgba(0,0,0,.18))}}
+}
+@media (prefers-reduced-motion:reduce){.cc-reveal-title,.cc-reveal-copy,.cc-reveal-group,.cc-reveal-bottle{animation:none!important;opacity:1!important;clip-path:none!important}}

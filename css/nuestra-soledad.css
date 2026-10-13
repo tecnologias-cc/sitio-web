@@ -26,3 +26,15 @@
 @media(max-width:420px){
   .ns-terroir-main>img{height:64vh;min-height:380px;transform:scale(1.05)}
 }
+
+/* Final: official tasting diagrams */
+.ns-venn.ns-venn-official{width:min(100%,420px);height:auto;flex:1 1 240px;min-width:0;transform:none!important}
+.ns-venn-official>img{display:block;width:100%;height:auto;object-fit:contain}
+.ns-tasting{gap:1.25rem;padding-right:1.5rem}
+.ns-buy{display:table;text-decoration:none;cursor:pointer}
+@media(max-width:800px){.ns-venn.ns-venn-official{width:min(100%,430px);flex:1 1 200px}.ns-tasting{flex-wrap:wrap;padding-right:0}.ns-venn-official>img{width:100%}}
+
+/* V4: diagramas originales, sin transformaciones heredadas */
+.ns-tasting .ns-venn.ns-venn-official{display:flex;align-items:center;justify-content:center;position:static!important;min-width:0;width:min(100%,380px);height:auto!important;flex:1 1 220px;overflow:visible;transform:none!important}
+.ns-tasting .ns-venn-official img{display:block!important;position:static!important;width:100%!important;height:auto!important;max-height:220px;object-fit:contain!important;opacity:1!important;visibility:visible!important;transform:none!important}
+@media(max-width:800px){.ns-tasting .ns-venn.ns-venn-official{flex:1 1 100%;max-width:380px}.ns-tasting .ns-venn-official img{max-height:230px}}
