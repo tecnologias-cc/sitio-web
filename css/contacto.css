@@ -1,0 +1,27 @@
+body{background:#f3efe8}.contact-page{color:#222}.contact-intro{padding:clamp(145px,17vw,230px) 7vw 7vw;text-align:center;background:#f3efe8}.contact-eyebrow{font:600 .7rem Inter,sans-serif;letter-spacing:.26em}.contact-intro h1{font:600 clamp(4.5rem,10vw,10rem)/.94 "Cormorant Garamond",serif;margin:1.5rem 0}.contact-intro h1 span{color:#9b8661}.contact-intro p{font:italic 300 clamp(.95rem,1.35vw,1.2rem)/1.8 Inter,sans-serif;max-width:560px;margin:auto}.contact-content{display:grid;grid-template-columns:1fr 1fr;min-height:740px}.contact-aside{position:relative;min-height:680px;background:#1c211a}.contact-aside>img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:brightness(.65)}.contact-aside-text{position:absolute;left:9%;bottom:10%;right:9%;color:white}.contact-aside-text h2,.contact-form-wrap h2{font:600 clamp(3rem,5vw,5.4rem)/1 "Cormorant Garamond",serif}.contact-aside-text p{font:italic 300 1rem/1.7 Inter,sans-serif;max-width:400px}.contact-form-wrap{padding:clamp(3rem,6vw,7rem) clamp(2rem,7vw,7rem);background:#e9e3d9}.contact-form-wrap h2{margin:0 0 .7rem}.contact-form-wrap>p{font:italic 300 .95rem/1.7 Inter,sans-serif;margin-bottom:2rem}.contact-form-wrap form{display:grid;gap:.7rem}.contact-form-wrap label{font:italic 300 .82rem Inter,sans-serif;margin-top:.8rem}.contact-form-wrap input,.contact-form-wrap select,.contact-form-wrap textarea{width:100%;border:0;border-bottom:1px solid #aaa093;border-radius:0;background:transparent;padding:1rem .2rem;color:#222;font:300 .95rem Inter,sans-serif;box-sizing:border-box}.contact-form-wrap textarea{resize:vertical}.contact-form-wrap :focus-visible{outline:2px solid #8e7553;outline-offset:3px}.contact-privacy,.contact-pending{font:300 .75rem/1.6 Inter,sans-serif;color:#6e665b}.contact-form-wrap button{margin-top:1rem;padding:1rem 2rem;background:#2b2a25;color:#fff;border:0;font:300 .9rem Inter,sans-serif}.contact-form-wrap button:disabled{opacity:.55;cursor:not-allowed}@media(max-width:800px){.contact-intro{padding:145px 7vw 65px}.contact-content{grid-template-columns:1fr}.contact-aside{min-height:360px}.contact-form-wrap{padding:3rem 7vw 5rem}}
+/* V18: contacto compacto — formulario visible desde el primer pantallazo */
+.contact-intro{
+  padding:clamp(105px,9vw,132px) 6vw 24px;
+}
+.contact-intro h1{
+  font-size:clamp(3.4rem,6.4vw,6rem);
+  line-height:1.05;
+  margin:0 0 10px;
+}
+.contact-intro p{
+  font-size:clamp(.85rem,1.05vw,1rem);
+  line-height:1.55;
+  max-width:680px;
+}
+.contact-content{min-height:0}
+.contact-aside{min-height:560px}
+.contact-form-wrap{padding:clamp(2rem,3vw,3.5rem) clamp(2rem,5vw,5rem)}
+.contact-form-wrap h2{font-size:clamp(2.5rem,3.8vw,4rem)}
+@media(max-width:800px){
+  .contact-intro{padding:100px 6vw 24px}
+  .contact-intro h1{font-size:clamp(3.25rem,12vw,4.5rem)}
+  .contact-intro p{font-size:.9rem}
+  .contact-content{display:flex;flex-direction:column}
+  .contact-form-wrap{order:1;padding:2rem 7vw 3rem}
+  .contact-aside{order:2;min-height:280px}
+}

@@ -60,3 +60,9 @@
 .ej-selecto-copy p, .ej-ancestral p, .ej-manifest p {
  text-align:justify; text-justify:inter-word; hyphens:auto;
 }
+
+/* V14: los manifiestos de gran formato no deben justificarse. */
+.ej-manifest p { text-align:left; text-justify:auto; hyphens:none; overflow-wrap:normal; word-break:normal; }
+
+/* V15: manifiesto centrado, sin saltos manuales ni justificación */
+.ej-manifest p{ text-align:center; text-justify:auto; hyphens:none; overflow-wrap:normal; word-break:normal; text-wrap:balance; margin-inline:auto; }
