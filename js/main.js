@@ -51,7 +51,8 @@
     show(0,false);
   }
 
-  document.querySelectorAll('.brand-card').forEach(card=>card.addEventListener('click',()=>{
+  document.querySelectorAll('.brand-card').forEach(card=>card.addEventListener('click',(event)=>{
+    if(event.target.closest('a'))return;
     document.querySelectorAll('.brand-card').forEach(c=>c!==card&&c.classList.remove('active'));
     card.classList.toggle('active');
   }));
@@ -111,3 +112,6 @@
     });
   });
 })();
+
+// Activación de tarjetas de marcas mediante teclado.
+document.querySelectorAll('.brand-card[tabindex]').forEach(card=>card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();card.click();}}));

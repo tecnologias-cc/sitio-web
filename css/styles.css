@@ -169,3 +169,12 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
   .experience-grid article.active>div.experience-detail{opacity:1;transform:none}
   .experience-grid article.active:after{opacity:1}
 }
+
+/* Links de descubrimiento de marcas */
+.brand-discover-link{display:inline-block;color:inherit;text-decoration:none;cursor:pointer}.brand-discover-link:hover,.brand-discover-link:focus-visible{text-decoration:underline;text-underline-offset:.3em}.brand-card:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+
+/* V13 — descripciones editoriales de marcas */
+.brand-card p, .brand-card .brand-description,
+.brand-card .brand-copy p, .brand-detail p,
+.brand-overlay p { text-align:justify; text-justify:inter-word; hyphens:auto; }

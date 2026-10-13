@@ -38,3 +38,9 @@
 .ns-tasting .ns-venn.ns-venn-official{display:flex;align-items:center;justify-content:center;position:static!important;min-width:0;width:min(100%,380px);height:auto!important;flex:1 1 220px;overflow:visible;transform:none!important}
 .ns-tasting .ns-venn-official img{display:block!important;position:static!important;width:100%!important;height:auto!important;max-height:220px;object-fit:contain!important;opacity:1!important;visibility:visible!important;transform:none!important}
 @media(max-width:800px){.ns-tasting .ns-venn.ns-venn-official{flex:1 1 100%;max-width:380px}.ns-tasting .ns-venn-official img{max-height:230px}}
+
+
+/* V13 — origen, colección y descripciones de terruños */
+.ns-origin-copy p, .ns-collection p, .ns-terroir-copy p {
+ text-align:justify; text-justify:inter-word; hyphens:auto;
+}

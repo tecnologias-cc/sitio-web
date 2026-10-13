@@ -6,8 +6,27 @@
   .cc-motion-ready .cc-reveal-copy.cc-inview{animation:cc-copy-in .8s cubic-bezier(.22,1,.36,1) both}
   .cc-motion-ready .cc-reveal-group.cc-inview{animation:cc-copy-in .8s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--cc-stagger,0ms)}
   .cc-motion-ready .cc-reveal-bottle.cc-inview{animation:cc-bottle-in .9s cubic-bezier(.22,1,.36,1) both}
-  @keyframes cc-title-in{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(16px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:translateY(0)}}
+  @keyframes cc-title-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   @keyframes cc-copy-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
   @keyframes cc-bottle-in{from{opacity:0;transform:translateY(24px) scale(.955);filter:brightness(.88) drop-shadow(0 14px 14px rgba(0,0,0,.12))}to{opacity:1;transform:translateY(0) scale(1);filter:brightness(1) drop-shadow(0 20px 18px rgba(0,0,0,.18))}}
 }
 @media (prefers-reduced-motion:reduce){.cc-reveal-title,.cc-reveal-copy,.cc-reveal-group,.cc-reveal-bottle{animation:none!important;opacity:1!important;clip-path:none!important}}
+
+/* V9 — corrección integral de glifos en títulos y subtítulos.
+   El revelado usa opacidad/desplazamiento, nunca una máscara que corte letras. */
+.cc-reveal-title {clip-path:none!important;overflow:visible!important;}
+main h1, main h2, main h3, main h4 {
+  overflow:visible;
+  padding-top:.10em;
+  padding-bottom:.11em;
+  text-overflow:clip;
+}
+/* Cormorant Garamond necesita holgura para ascendentes, acentos y descendentes. */
+main h1, main h2 {line-height:1.13;}
+main h3, main h4 {line-height:1.2;}
+/* Excepciones de títulos grandes: conservar proporciones y prevenir cortes. */
+.agave-page .ag-product h2 {line-height:1.16;}
+@media(max-width:800px){
+  main h1,main h2,main h3,main h4{padding-top:.12em;padding-bottom:.14em;}
+  main h1,main h2{overflow-wrap:break-word;}
+}
