@@ -56,3 +56,9 @@ body footer .social-links svg{width:19px;height:19px;display:block}
 @media(max-width:800px){body footer>div{align-items:center;text-align:center;gap:20px}body footer .social-links{gap:24px}}
 /* V24: El logo compartido es blanco; en el footer claro se muestra en negro sin alterar el header. */
 body footer > img[src*="casa-cortes.png"] { filter: brightness(0) !important; opacity: 1 !important; }
+/* V25: picture preserves existing desktop/mobile image positioning */
+.v-hero>picture,.v-origin-photo>picture,.v-closing>picture{display:contents}
+.v-hero>picture>img,.v-closing>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v-origin-photo>picture>img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:800px){.v-hero>picture>img{object-position:63% center}.v-closing>picture>img{object-position:65% center}}
+@media(min-width:801px){.v-closing>picture>img{object-position:center top}}

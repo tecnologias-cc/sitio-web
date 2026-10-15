@@ -66,3 +66,17 @@
 
 /* V15: manifiesto centrado, sin saltos manuales ni justificación */
 .ej-manifest p{ text-align:center; text-justify:auto; hyphens:none; overflow-wrap:normal; word-break:normal; text-wrap:balance; margin-inline:auto; }
+/* V25: preserve Ancestral mobile layout with responsive picture */
+.ej-ancestral>picture{display:contents}
+.ej-ancestral>picture>img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:800px){.ej-ancestral>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:29% center}}
+
+/* V26 — Ancestral: picture is the grid media column on desktop. */
+@media (min-width:801px){
+ .ej-ancestral>picture{display:block;min-width:0;min-height:600px;height:100%;overflow:hidden}
+ .ej-ancestral>picture>img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+}
+@media (max-width:800px){
+ .ej-ancestral>picture{display:block;position:absolute;inset:0;z-index:-2;overflow:hidden}
+ .ej-ancestral>picture>img{width:100%;height:100%;object-fit:cover;object-position:29% center}
+}
