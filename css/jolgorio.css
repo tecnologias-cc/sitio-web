@@ -80,3 +80,6 @@
  .ej-ancestral>picture{display:block;position:absolute;inset:0;z-index:-2;overflow:hidden}
  .ej-ancestral>picture>img{width:100%;height:100%;object-fit:cover;object-position:29% center}
 }
+
+/* V27: desplazar el encuadre móvil para mostrar la botella completa */
+@media(max-width:800px){.ej-ancestral>picture>img{object-position:10% center!important}}

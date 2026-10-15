@@ -62,3 +62,18 @@ body footer > img[src*="casa-cortes.png"] { filter: brightness(0) !important; op
 .v-origin-photo>picture>img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:800px){.v-hero>picture>img{object-position:63% center}.v-closing>picture>img{object-position:65% center}}
 @media(min-width:801px){.v-closing>picture>img{object-position:center top}}
+
+/* V27: acciones de compra y composición móvil */
+.v-buy{display:inline-flex;align-items:center;justify-content:center;min-width:145px;padding:13px 28px;border-radius:40px;background:#f5f2ed;color:#30231a;text-decoration:none;font:500 .8rem Inter,sans-serif;letter-spacing:.12em;margin:1rem auto 0;position:relative;z-index:5;transition:transform .25s ease,background .25s ease}
+.v-buy:hover{transform:translateY(-3px);background:#fff}
+.v-closing-copy{position:absolute;z-index:3;top:14%;left:6%;max-width:80%}
+.v-closing-copy h2{position:static;max-width:none;margin:0 0 1.5rem}
+@media(max-width:800px){
+ .v-hero-content{padding:16vh 6vw 0;align-items:flex-start}
+ .v-logo{width:min(43vw,190px);max-height:110px}
+ .v-closing-copy{top:11%;left:5%;width:53%;max-width:53%;}
+ .v-closing-copy h2{font-size:clamp(.78rem,3.1vw,1.25rem);line-height:1.6;letter-spacing:.015em;overflow-wrap:break-word}
+ .v-closing-copy h2 br{display:none}
+ .v-closing-copy .v-buy{margin-top:.4rem;padding:11px 18px;min-width:125px;font-size:.72rem}
+ .v-mezcal-content>.v-buy{margin-top:1.2rem}
+}
