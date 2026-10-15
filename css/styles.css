@@ -178,3 +178,5 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 .brand-card p, .brand-card .brand-description,
 .brand-card .brand-copy p, .brand-detail p,
 .brand-overlay p { text-align:justify; text-justify:inter-word; hyphens:auto; }
+/* V30: centered editorial copy in home brand cards. */
+.brand-card .card-detail b,.brand-card .card-detail p,.brand-card .brand-description,.brand-card .brand-copy p,.brand-card .brand-detail p,.brand-card .brand-overlay p{text-align:center;text-justify:auto;hyphens:none}

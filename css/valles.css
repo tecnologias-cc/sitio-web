@@ -77,3 +77,8 @@ body footer > img[src*="casa-cortes.png"] { filter: brightness(0) !important; op
  .v-closing-copy .v-buy{margin-top:.4rem;padding:11px 18px;min-width:125px;font-size:.72rem}
  .v-mezcal-content>.v-buy{margin-top:1.2rem}
 }
+/* V30: lower the Valles hero identity into the open dark space on phones. */
+@media (max-width:800px){
+ .v-hero-content{padding:0 6vw;align-items:flex-start}
+ .v-logo{position:absolute;top:43%;left:8%;width:min(43vw,190px);max-height:110px}
+}
