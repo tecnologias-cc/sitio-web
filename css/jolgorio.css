@@ -88,3 +88,19 @@
 @media (max-width:800px){
  .ej-ancestral>picture>img{object-position:45% center!important}
 }
+
+/* V29 — Ancestral mobile: position the source photograph by its bottle,
+   rather than cropping its center with object-fit: cover. */
+@media (max-width:800px){
+  .ej-ancestral>picture{position:absolute;inset:0;display:block;overflow:hidden;z-index:-2}
+  .ej-ancestral>picture>img{
+    position:absolute!important;
+    top:0!important;
+    left:calc(17vw - 39svh)!important;
+    width:auto!important;
+    max-width:none!important;
+    height:100%!important;
+    object-fit:fill!important;
+    object-position:initial!important;
+  }
+}
