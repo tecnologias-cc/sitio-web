@@ -1,0 +1,58 @@
+
+/* Valles: editorial identity, independent from other brand pages */
+body:has(.v-hero){background:#0b0b0c;color:#f8f5ee}
+body:has(.v-hero) h1,body:has(.v-hero) h2,body:has(.v-hero) .v-steps b{font-family:'Lexend Zetta',sans-serif;font-weight:400;text-transform:uppercase}
+.v-hero,.v-origin,.v-mezcal,.v-region,.v-closing{position:relative;overflow:hidden}
+.v-hero{height:92svh;min-height:530px}.v-hero>img,.v-mezcal-bg,.v-region>img,.v-closing>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v-hero>img{object-position:center}.v-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.4),transparent 65%)}
+.v-hero-content{position:absolute;z-index:1;inset:0;display:flex;align-items:center;padding:8vw}.v-logo{width:min(38vw,430px);max-height:220px;object-fit:contain;filter:drop-shadow(0 2px 15px #0008)}
+.v-origin{display:grid;grid-template-columns:1fr 1fr;background:#f5f2ed;color:#141414;min-height:550px}.v-origin-photo img{width:100%;height:100%;object-fit:cover;display:block}.v-origin-copy{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:7vw 5vw}.v-origin h1{font-size:clamp(1.4rem,2.1vw,2.6rem);line-height:1.5;letter-spacing:.05em;margin:0 0 2rem}.v-origin p{max-width:560px;font-size:clamp(.95rem,1.25vw,1.16rem);line-height:1.8;font-style:italic}
+.v-mezcal{min-height:660px;display:flex;justify-content:flex-end;align-items:center;background:#090909}.v-mezcal-bg{object-position:center}.v-mezcal:before,.v-region:before,.v-closing:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#0003,#000a 52%,#0009)}.v-mezcal-content{position:relative;z-index:2;width:68%;padding:7rem 5vw 6rem;text-align:center}.v-mezcal h2{font-size:clamp(1.4rem,2.1vw,2.5rem);line-height:1.45;letter-spacing:.06em;margin:0 0 2rem}.v-mezcal p{font-size:clamp(.92rem,1.1vw,1.08rem);line-height:1.8;font-style:italic;max-width:800px;margin:0 auto 1.3rem}.v-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;margin-top:3.5rem}.v-steps>div{display:flex;align-items:center;flex-direction:column;gap:.9rem}.v-steps b{font-size:clamp(.55rem,.7vw,.75rem);line-height:1.5}.v-steps img{width:65px;height:65px;object-fit:contain}.v-steps span{font:italic .78rem/1.5 Inter,sans-serif}
+.v-region{height:62svh;min-height:450px}.v-region>img{object-position:center 45%}.v-region:before{background:linear-gradient(90deg,#0009,#0001)}.v-region-copy{position:absolute;z-index:2;top:40%;left:8%;max-width:50%}.v-region-copy span{display:block;font:italic 1rem Inter,sans-serif;margin-bottom:1rem}.v-region h2{font-size:clamp(1.4rem,2.6vw,3rem);line-height:1.5}
+.v-closing{height:75svh;min-height:530px}.v-closing>img{object-position:center}.v-closing:before{background:linear-gradient(90deg,#0009,transparent 90%)}.v-closing h2{position:absolute;z-index:2;top:14%;left:6%;font-size:clamp(1.3rem,2.5vw,3rem);line-height:1.55;letter-spacing:.025em;max-width:80%}
+@media(max-width:800px){.v-hero{height:73svh;min-height:460px}.v-hero>img{object-position:63% center}.v-hero-content{align-items:flex-start;padding:20vh 7vw 0}.v-logo{width:min(65vw,340px)}.v-origin{grid-template-columns:1fr}.v-origin-photo{height:46svh;min-height:300px}.v-origin-copy{padding:4rem 7vw}.v-origin h1{font-size:clamp(1.15rem,4.6vw,1.8rem)}.v-mezcal{min-height:0}.v-mezcal-bg{object-position:32% center}.v-mezcal:before{background:#000b}.v-mezcal-content{width:100%;padding:5rem 6vw 4rem}.v-mezcal h2{font-size:clamp(1.1rem,4.2vw,1.7rem)}.v-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1rem;margin-top:2.5rem}.v-steps>div:last-child{grid-column:1/-1;max-width:180px;justify-self:center}.v-steps b{font-size:.65rem}.v-steps img{width:54px;height:54px}.v-region{height:53svh;min-height:380px}.v-region-copy{left:7%;top:30%;max-width:80%}.v-region h2{font-size:clamp(1.1rem,4.6vw,1.8rem)}.v-closing{height:62svh;min-height:450px}.v-closing>img{object-position:65% center}.v-closing h2{font-size:clamp(1rem,4vw,1.7rem);top:12%;left:7%;max-width:85%}}
+@media(prefers-reduced-motion:reduce){.v-hero *,.v-origin *,.v-mezcal *,.v-region *,.v-closing *{animation:none!important;transition:none!important}}
+
+/* V21: preserve bottle necks at section boundaries and integrate supplied map */
+@media(min-width:801px){
+ .v-mezcal-bg{object-position:center top}
+ .v-region>img:first-child{object-position:center top}
+ .v-closing>img{object-position:center top}
+ .v-mezcal{min-height:710px}
+ .v-region{height: min(67vw, 760px);min-height:560px}
+ .v-closing{height:min(64vw, 790px);min-height:560px}
+}
+.v-region-map{position:absolute;z-index:3;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;pointer-events:none;filter:drop-shadow(0 2px 6px #0008)}
+.v-region:before{background:rgba(0,0,0,.24)}
+@media(max-width:800px){
+ .v-mezcal-bg,.v-region>img:first-child,.v-closing>img{object-position:center top}
+ .v-region-map{object-fit:contain;width:100%;height:100%}
+ .v-region{min-height:310px;height:65vw}
+}
+
+/* V22: show full photographs without cropping bottle bases */
+.v-mezcal{background:#050505}
+.v-mezcal-bg{object-fit:contain!important;object-position:center center!important}
+.v-region{background:#050505;aspect-ratio:2048 / 1209;height:auto!important;min-height:0!important}
+.v-region>img:first-child{object-fit:contain!important;object-position:center center!important}
+.v-region-map{object-fit:contain!important}
+@media(min-width:801px){
+ .v-mezcal{min-height:max(710px,69.83vw)}
+}
+@media(max-width:800px){
+ .v-mezcal{min-height:0}
+ .v-mezcal-bg{object-fit:cover!important;object-position:left center!important;opacity:.6}
+ .v-region{aspect-ratio:2048 / 1209;height:auto!important;min-height:0!important}
+}
+
+/* V23 — Footer claro, consistente con las páginas institucionales */
+body footer{background:#f3f0e9!important;color:#181713!important;border-top:1px solid rgba(24,23,19,.18);position:relative;z-index:2}
+body footer>img{filter:none!important;opacity:1!important;width:150px;max-width:45vw}
+body footer>div{border-top:1px solid rgba(24,23,19,.18);color:#181713}
+body footer a,body footer span{color:#181713}
+body footer .social-links{display:flex;align-items:center;justify-content:center;gap:18px}
+body footer .social-links a{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px}
+body footer .social-links svg{width:19px;height:19px;display:block}
+@media(max-width:800px){body footer>div{align-items:center;text-align:center;gap:20px}body footer .social-links{gap:24px}}
+/* V24: El logo compartido es blanco; en el footer claro se muestra en negro sin alterar el header. */
+body footer > img[src*="casa-cortes.png"] { filter: brightness(0) !important; opacity: 1 !important; }
