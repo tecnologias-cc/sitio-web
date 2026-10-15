@@ -83,3 +83,8 @@
 
 /* V27: desplazar el encuadre móvil para mostrar la botella completa */
 @media(max-width:800px){.ej-ancestral>picture>img{object-position:10% center!important}}
+
+/* V28: mobile Ancestral bottle aligned with left photographic zone. */
+@media (max-width:800px){
+ .ej-ancestral>picture>img{object-position:45% center!important}
+}
