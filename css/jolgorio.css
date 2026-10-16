@@ -148,3 +148,9 @@
 .ej-gallery-zoom:focus-visible,.ej-gallery-buy:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @media(max-width:700px){.ej-gallery-detail{gap:8px;padding-bottom:22px}.ej-gallery-detail>img{height:min(56dvh,490px)}.ej-gallery-actions{gap:8px}.ej-gallery-zoom,.ej-gallery-buy{font-size:12px;padding:9px 12px;min-height:40px}}
 @media(prefers-reduced-motion:reduce){.ej-gallery-detail>img{transition:none}}
+
+/* Zoom directo al pulsar la botella */
+.ej-gallery-detail>img{cursor:zoom-in}
+.ej-gallery-detail.is-zoomed>img{cursor:zoom-out}
+.ej-gallery-detail>img:focus-visible{outline:2px solid white;outline-offset:5px}
+.ej-gallery-actions{justify-content:center}
