@@ -135,3 +135,16 @@
 .ej-gallery-prev:hover,.ej-gallery-next:hover{opacity:.65}
 .ej-gallery-prev:focus-visible,.ej-gallery-next:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @media(max-width:700px){.ej-gallery-detail{padding:65px 42px 30px}.ej-gallery-detail img{width:min(72vw,320px);height:min(67dvh,570px)}.ej-gallery-prev,.ej-gallery-next{width:35px;height:50px;font-size:48px}.ej-gallery-prev{left:3px}.ej-gallery-next{right:3px}.ej-gallery-detail h3{font-size:clamp(2rem,8vw,3rem)}}
+
+/* Galería: compra directa y zoom dentro del visor */
+.ej-gallery-detail{overflow:hidden}
+.ej-gallery-detail>img{transform-origin:center;transition:transform .15s ease;touch-action:none;user-select:none;cursor:zoom-in;flex-shrink:1;min-height:0}
+.ej-gallery-detail.is-zoomed>img{cursor:grab}
+.ej-gallery-detail.is-zoomed>img:active{cursor:grabbing}
+.ej-gallery-actions{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+.ej-gallery-zoom,.ej-gallery-buy{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:10px 18px;border-radius:24px;border:1px solid rgba(255,255,255,.75);font:italic 13px Inter,sans-serif;text-decoration:none;cursor:pointer}
+.ej-gallery-zoom{background:transparent;color:white}
+.ej-gallery-buy{background:#f5f0e9;color:#33241d;border-color:#f5f0e9}
+.ej-gallery-zoom:focus-visible,.ej-gallery-buy:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(max-width:700px){.ej-gallery-detail{gap:8px;padding-bottom:22px}.ej-gallery-detail>img{height:min(56dvh,490px)}.ej-gallery-actions{gap:8px}.ej-gallery-zoom,.ej-gallery-buy{font-size:12px;padding:9px 12px;min-height:40px}}
+@media(prefers-reduced-motion:reduce){.ej-gallery-detail>img{transition:none}}
