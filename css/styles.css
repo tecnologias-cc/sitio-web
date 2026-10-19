@@ -180,3 +180,19 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 .brand-overlay p { text-align:justify; text-justify:inter-word; hyphens:auto; }
 /* V30: centered editorial copy in home brand cards. */
 .brand-card .card-detail b,.brand-card .card-detail p,.brand-card .brand-description,.brand-card .brand-copy p,.brand-card .brand-detail p,.brand-card .brand-overlay p{text-align:center;text-justify:auto;hyphens:none}
+
+/* Video editorial en Inicio: se conserva el hero original */
+.home-film{background:#171614;padding:clamp(26px,5vw,76px) clamp(14px,5vw,72px)}
+.home-film-inner{width:min(100%,1250px);margin:0 auto}
+.home-film-frame{position:relative;width:100%;aspect-ratio:16/9;background:#090909;overflow:hidden}
+.home-film-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+@media(max-width:600px){.home-film{padding:22px 12px}}
+
+/* Hero video local: conserva la fotografia como respaldo */
+.hero>.hero-background-video,.hero>.hero-background-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero>.hero-background-fallback{z-index:0}
+.hero>.hero-background-video{z-index:1}
+.hero>.hero-shade{z-index:2;pointer-events:none}
+.hero>.scroll{z-index:3}
+@media(max-width:800px){.hero>.hero-background-video,.hero>.hero-background-fallback{object-position:40% center}}
+@media(prefers-reduced-motion:reduce){.hero>.hero-background-video{display:none}}
