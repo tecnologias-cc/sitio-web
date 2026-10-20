@@ -180,3 +180,20 @@
 .ej-gallery-title{font-size:clamp(32px,3.5vw,49px);line-height:1.05;margin:0 auto clamp(20px,2.8vw,34px);font-weight:600}
 .ej-gallery-title::before{content:"✦";display:block;width:min(320px,70vw);margin:0 auto clamp(22px,3vw,34px);padding-top:clamp(18px,2.4vw,28px);border-top:1px solid rgba(255,255,255,.5);font-family:Georgia,serif;font-size:18px;font-weight:400;line-height:1;color:#f2d8c8;letter-spacing:0}
 @media(max-width:700px){.ej-gallery{padding-top:18px}.ej-gallery-title{font-size:clamp(30px,8vw,39px);margin-bottom:20px}.ej-gallery-title::before{padding-top:19px;margin-bottom:22px;font-size:15px}}
+
+/* Nuevas colecciones: stickers originales sin filtros ni mezcla de colores. */
+.ej-gallery-extra{padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(35px,5vw,65px)}
+.ej-gallery-extra .ej-gallery-title{font-size:clamp(30px,3.5vw,49px)}
+.ej-gallery-extra .ej-gallery-card{position:relative;overflow:hidden;background:#fff;mix-blend-mode:normal}
+.ej-gallery-extra .ej-gallery-card img{filter:none;mix-blend-mode:normal;opacity:1}
+.ej-gallery-pending{cursor:default;flex-direction:column;gap:0}
+.ej-gallery-pending:hover{transform:none;background:#fff}
+.ej-gallery-pending-note{font:italic 10px/1.25 Inter,sans-serif;text-align:center;color:#655044;padding:2px 0 5px}
+.ej-gallery-extra .ej-gallery-detail .ej-gallery-buy[hidden]{display:none}
+@media(max-width:700px){.ej-gallery-extra{padding-top:28px}.ej-gallery-pending-note{font-size:8px}}
+.ej-gallery-card .ej-gallery-pending-note{font:italic 10px/1.25 Inter,sans-serif;color:#655044;text-align:center;padding:2px 0 5px}
+@media(max-width:700px){.ej-gallery-card .ej-gallery-pending-note{font-size:8px}}
+
+/* Galerias con el mismo fondo que su respectivo proceso */
+.ej-gallery-selecto{background:#282628}
+.ej-gallery-ancestral{background:#6f2d11}

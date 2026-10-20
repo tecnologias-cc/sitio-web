@@ -196,3 +196,7 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 .hero>.scroll{z-index:3}
 @media(max-width:800px){.hero>.hero-background-video,.hero>.hero-background-fallback{object-position:40% center}}
 @media(prefers-reduced-motion:reduce){.hero>.hero-background-video{display:none}}
+
+/* Evita mostrar la antigua imagen mientras carga el video */
+.hero{background:#181514}
+.hero>.hero-background-fallback{display:none}
