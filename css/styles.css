@@ -214,3 +214,9 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 .world-map-v6-frame{height:calc(100% - 25px)}
 .world-map-v6-back{margin:2px auto 0}
 @media(max-width:800px){.world-map-v6-panel{padding:5px 6px 9px!important}.world-map-v6-panel::before{background:rgba(0,0,0,.4)}.world-map-v6-frame{height:calc(100% - 29px)}}
+
+/* V10 — altura contenida en escritorio; no modificar la versión móvil aprobada */
+@media(min-width:801px){
+.world-slider:has(.world-map-v6-panel){height:clamp(530px,51vw,690px)}
+.world-map-v6-frame{height:calc(100% - 24px)}
+}

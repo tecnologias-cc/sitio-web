@@ -72,3 +72,13 @@ body{background:linear-gradient(rgba(8,12,10,.24),rgba(8,12,10,.24)),url('assets
 #map-layer{background:transparent!important}
 .country-path.base{fill:rgba(31,45,36,.06)!important}
 .country-path.present{fill:rgba(193,147,76,.52)!important}
+
+/* V10 — lienzo más proporcionado y sin espacio vacío artificial */
+@media(min-width:801px){.shell.embedded-shell{padding-top:2px;padding-bottom:4px}.map-holder{margin-top:-7px}.map-top{padding-top:6px}.countries{margin-bottom:4px;padding-bottom:5px}}
+
+/* V11: acercar el mapa a la barra superior, sin alterar el diseño móvil. */
+@media(min-width:801px){
+ .map-top{padding:0 12px;height:28px;align-items:flex-start}
+ .map-top #reset{padding:5px 9px}
+ .map-holder{margin-top:-22px}
+}

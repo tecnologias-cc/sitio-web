@@ -10,7 +10,7 @@ let region='world',selected=null,features=[],path,projection,layer,svg;
 let currentTransform=d3.zoomIdentity;
 const center={world:[0,8],america:[-103,38],europe:[17,51],asia:[121,24],oceania:[134,-25]};
 const regionZoom={world:1,america:2.25,europe:3.35,asia:5.2,oceania:3.4};
-const width=1000,height=530;
+const width=1000,height=390;
 function normalize(id){return String(id).padStart(3,'0')}
 // world-atlas agrupa las regiones de ultramar bajo el mismo código ISO.
 // Separamos los polígonos europeos para que los territorios lejanos
@@ -30,6 +30,20 @@ function splitEuropeanTerritories(feature){
  }
  const make=(parts,code)=>parts.length?{type:'Feature',id:code,properties:feature.properties,geometry:{type:'MultiPolygon',coordinates:parts}}:null;
  return [make(local,id),make(overseas,'overseas-'+id)].filter(Boolean);
+}
+// Mostrar únicamente los 48 estados contiguos en el mapa. Alaska, Hawái y
+// demás territorios separados quedan fuera de la geometría visible y del zoom.
+function mainlandUnitedStates(feature){
+ if(normalize(feature.id)!=='840')return [feature];
+ const g=feature.geometry;
+ if(!g||!['MultiPolygon','Polygon'].includes(g.type))return [feature];
+ const polygons=g.type==='MultiPolygon'?g.coordinates:[g.coordinates];
+ const mainland=polygons.filter(poly=>{
+   const f={type:'Feature',geometry:{type:'Polygon',coordinates:poly}};
+   const [lon,lat]=d3.geoCentroid(f);
+   return lon>=-125&&lon<=-66&&lat>=24&&lat<=50;
+ });
+ return mainland.length?[{...feature,geometry:{type:'MultiPolygon',coordinates:mainland}}]:[feature];
 }
 function showButtons(){const entries=region==='world'?all:groups[region];document.getElementById('countries').replaceChildren(...entries.map(([id,name])=>{const b=document.createElement('button');b.className='country'+(selected===id?' active':'');b.textContent=name;b.type='button';b.setAttribute('aria-pressed',String(selected===id));b.addEventListener('click',()=>selectCountry(id));return b}));document.getElementById('count').textContent=entries.length+' '+(entries.length===1?'país':'países');document.getElementById('countries-heading').textContent=region==='world'?'Presencia Global':{america:'América',europe:'Europa',asia:'Asia',oceania:'Oceanía'}[region]}
 function updatePaths(){if(!layer)return;layer.selectAll('path').attr('class',d=>{const id=normalize(d.id);return 'country-path '+(selected===id?'selected':ids.has(id)?'present':'base')}).attr('aria-label',d=>names.get(normalize(d.id))||d.properties?.name||'País')}
@@ -54,7 +68,8 @@ function positionCallout(transform=currentTransform){
 function animateTo(feature,reg){
  if(!layer)return;
  let tx=0,ty=0,k=1;
- if(feature){const b=path.bounds(feature),dx=Math.max(1,b[1][0]-b[0][0]),dy=Math.max(1,b[1][1]-b[0][1]);k=Math.min(9,Math.max(1,Math.min(width*.42/dx,height*.54/dy)));tx=(b[0][0]+b[1][0])/2;ty=(b[0][1]+b[1][1])/2}
+ if(feature && normalize(feature.id)==='840'){const pt=projection([-97,38]);tx=pt[0];ty=pt[1];k=2.8}
+ else if(feature){const b=path.bounds(feature),dx=Math.max(1,b[1][0]-b[0][0]),dy=Math.max(1,b[1][1]-b[0][1]);k=Math.min(9,Math.max(1,Math.min(width*.42/dx,height*.54/dy)));tx=(b[0][0]+b[1][0])/2;ty=(b[0][1]+b[1][1])/2}
  else if(reg!=='world'){const pt=projection(center[reg]);tx=pt[0];ty=pt[1];k=regionZoom[reg]}
  else{tx=width/2;ty=height/2}
  const target=d3.zoomIdentity.translate(width/2,height/2).scale(k).translate(-tx,-ty);
@@ -62,8 +77,9 @@ function animateTo(feature,reg){
  const from=currentTransform;
  layer.interrupt();
  layer.transition().duration(duration).ease(d3.easeCubicInOut).attrTween('transform',()=>{
-   const interpolate=d3.interpolateZoom([from.invert([width/2,height/2])[0],from.invert([width/2,height/2])[1],width/from.k],[target.invert([width/2,height/2])[0],target.invert([width/2,height/2])[1],width/target.k]);
-   return t=>{const v=interpolate(t);const z=width/v[2];currentTransform=d3.zoomIdentity.translate(width/2,height/2).scale(z).translate(-v[0],-v[1]);positionCallout(currentTransform);return currentTransform.toString()};
+   // Interpolar directamente el zoom evita el alejamiento transitorio de interpolateZoom.
+   const interp=d3.interpolateObject({x:from.x,y:from.y,k:from.k},{x:target.x,y:target.y,k:target.k});
+   return t=>{const v=interp(t);currentTransform=d3.zoomIdentity.translate(v.x,v.y).scale(v.k);positionCallout(currentTransform);return currentTransform.toString()};
  }).on('end',()=>{currentTransform=target;positionCallout(target)});
 }
 function selectCountry(id){
@@ -85,6 +101,6 @@ function selectCountry(id){
 function chooseRegion(next){region=next;selected=null;d3.select('#map-callout').style('display','none').classed('visible',false);document.querySelectorAll('.region').forEach(b=>{b.classList.toggle('active',b.dataset.region===next);b.setAttribute('aria-pressed',String(b.dataset.region===next))});showButtons();updatePaths();animateTo(null,next)}
 document.querySelectorAll('.region').forEach(b=>b.addEventListener('click',()=>chooseRegion(b.dataset.region)));document.getElementById('reset').addEventListener('click',()=>chooseRegion('world'));showButtons();
 async function init(){const loading=document.getElementById('loading');if(!window.d3||!window.topojson){loading.textContent='No se pudieron cargar las bibliotecas del mapa. Comprueba tu conexión.';return}try{
-const response=await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');if(!response.ok)throw new Error('HTTP '+response.status);const topology=await response.json();features=topojson.feature(topology,topology.objects.countries).features.flatMap(splitEuropeanTerritories);
+const response=await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');if(!response.ok)throw new Error('HTTP '+response.status);const topology=await response.json();features=topojson.feature(topology,topology.objects.countries).features.flatMap(splitEuropeanTerritories).flatMap(mainlandUnitedStates);
 svg=d3.select('#map');projection=d3.geoNaturalEarth1().fitExtent([[22,26],[width-22,height-24]],{type:'Sphere'});path=d3.geoPath(projection);layer=svg.select('#map-layer');layer.append('path').datum({type:'Sphere'}).attr('d',path).attr('fill','none');layer.selectAll('path.country-path').data(features).enter().append('path').attr('d',path).attr('tabindex',d=>ids.has(normalize(d.id))?0:null).attr('role',d=>ids.has(normalize(d.id))?'button':null).on('click',(e,d)=>{const id=normalize(d.id);if(ids.has(id))selectCountry(id)}).on('keydown',(e,d)=>{if((e.key==='Enter'||e.key===' ')&&ids.has(normalize(d.id))){e.preventDefault();selectCountry(normalize(d.id))}});updatePaths();loading.classList.add('hidden');
 }catch(err){loading.textContent='No fue posible cargar el mapa. Revisa la conexión a Internet y vuelve a abrir la página.';console.error('Error al cargar mapa:',err)}}init();
