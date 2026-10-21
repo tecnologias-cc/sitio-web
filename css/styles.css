@@ -200,3 +200,17 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 /* Evita mostrar la antigua imagen mientras carga el video */
 .hero{background:#181514}
 .hero>.hero-background-fallback{display:none}
+
+/* Mapa V6 superpuesto a mapa.webp; primera pantalla y deslizamiento intactos */
+.world-map-v6-panel{position:relative;display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:12px clamp(12px,2.5vw,38px) 20px!important;background:#141817 url('../assets/images/mapa.webp') center/cover no-repeat!important}
+.world-map-v6-panel::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.48);z-index:0;pointer-events:none}
+.world-map-v6-frame{position:relative;z-index:1;display:block;width:100%;height:min(800px,calc(100% - 34px));border:0;background:transparent}
+.world-map-v6-back{position:relative;z-index:2;margin:3px auto 0;color:#fff}
+@media(max-width:800px){.world-slider:has(.world-map-v6-panel){height:clamp(720px,165vw,940px)}.world-map-v6-panel{padding:8px 7px 15px!important}.world-map-v6-frame{height:calc(100% - 36px)}.world-map-v6-panel::before{background:rgba(0,0,0,.57)}}
+
+/* V7: más espacio útil para el mapa, sin alterar la portada ni la transición */
+.world-map-v6-panel{padding:5px clamp(7px,1.2vw,20px) 10px!important}
+.world-map-v6-panel::before{background:rgba(0,0,0,.32)}
+.world-map-v6-frame{height:calc(100% - 25px)}
+.world-map-v6-back{margin:2px auto 0}
+@media(max-width:800px){.world-map-v6-panel{padding:5px 6px 9px!important}.world-map-v6-panel::before{background:rgba(0,0,0,.4)}.world-map-v6-frame{height:calc(100% - 29px)}}

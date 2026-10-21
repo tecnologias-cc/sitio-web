@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Inter:wght@400;500;600&display=swap');
+:root{color-scheme:dark;--bg:#101413;--surface:#1a201e;--gold:#c5a16b;--bright:#f4d49a;--muted:#a7aca6;--line:#414943}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#eeeae1;font-family:Inter,Arial,sans-serif}.shell{max-width:1370px;margin:auto;padding:clamp(24px,5vw,72px) clamp(15px,4vw,58px)}.intro{text-align:center;max-width:740px;margin:0 auto 35px}.eyebrow,.map-kicker{font-size:10px;letter-spacing:.24em;color:var(--gold);font-weight:600}.intro h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:clamp(43px,6vw,76px);line-height:1.05;margin:18px 0}.intro em{color:var(--gold)}.intro>p:last-child{font-size:14px;line-height:1.8;color:#a9aea8}.regions{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:20px}button{font-family:inherit;cursor:pointer}.region,.country,#reset{border:1px solid #49514a;background:transparent;color:#d9dbd3;transition:background .25s,border-color .25s,color .25s,transform .25s}.region{border-radius:25px;padding:12px 19px;font-size:12px}.region:hover,.country:hover{border-color:var(--gold);color:var(--bright)}.region.active,.country.active{background:var(--gold);color:#171a17;border-color:var(--gold)}.map-frame{position:relative;border:1px solid #3a443d;background:radial-gradient(ellipse at 50% 40%,#27312b 0%,#1b231f 54%,#131916 100%);overflow:hidden}.map-top,.map-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:22px 27px}.map-top{position:relative;z-index:2}.map-top #reset{padding:10px 12px;font-size:11px;border-radius:2px}#reset:hover{background:#3b463d}.map-holder{position:relative;width:100%;overflow:hidden}#map{display:block;width:100%;height:auto;min-height:250px;touch-action:pan-y}#map-layer{transition:none}.country-path{stroke:#242d27;stroke-width:.7;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .25s,filter .25s}.country-path.base{fill:#59645a}.country-path.present{fill:#b08d55}.country-path.present:hover{fill:#dfbd82}.country-path.selected{fill:#f7d596;filter:drop-shadow(0 0 5px #f5ce7c)}.country-path:focus{outline:none;stroke:#fff;stroke-width:2.5}.map-bottom{border-top:1px solid #38423b}.map-bottom small{display:block;font-size:9px;letter-spacing:.18em;color:#b3b9af;margin-bottom:8px}.map-bottom strong{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,3vw,34px);font-weight:600}.legend{font-size:11px;color:#aeb5a9;display:flex;align-items:center;gap:8px}.legend i{display:inline-block;width:9px;height:9px;background:#b08d55;border-radius:50%}.loading{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;color:#d9c29b;background:#1a211e}.loading.hidden{display:none}.countries-header{display:flex;justify-content:space-between;align-items:baseline;margin:28px 0 14px}.countries-header h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:500;margin:0}.countries-header span{font-size:12px;color:#b7bcb3}.countries{display:flex;flex-wrap:wrap;gap:9px}.country{border-radius:2px;padding:12px 16px;font-size:12px}.footnote{margin-top:26px;font-size:10px;line-height:1.7;color:#8f9990}@media(max-width:600px){.map-top,.map-bottom{padding:15px}.map-kicker{font-size:8px;letter-spacing:.12em}#reset{font-size:10px!important}.legend{font-size:9px}.region{padding:10px 12px;font-size:11px}.country{padding:11px 12px}.intro{margin-bottom:23px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+.map-meta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}.importer-info{text-align:right}.importer-info[hidden]{display:none!important}.importer-info strong{display:block;font-size:clamp(19px,2.5vw,27px);color:var(--bright)}@media(max-width:600px){.map-bottom{align-items:flex-start}.map-meta{gap:10px;justify-content:flex-end}.importer-info strong{font-size:19px}.legend{max-width:125px;text-align:right}}
+
+/* Tarjeta del distribuidor integrada al mapa */
+#map-callout{pointer-events:none}#callout-line{stroke:#d5ad70;stroke-width:1.5;fill:none;stroke-dasharray:3 3}#callout-point{fill:#f4d49a;stroke:#263027;stroke-width:2}.map-card{height:82px;background:rgba(30,38,33,.96);border:1px solid #a88755;border-radius:7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;text-align:center;box-shadow:0 8px 25px #0008}.map-card span{font:600 10px Inter,Arial,sans-serif;letter-spacing:.14em;color:#d5ad70}.map-card strong{font:600 24px 'Cormorant Garamond',Georgia,serif;color:white;line-height:1.05}#map-callout.visible .map-card{animation:card-in .45s ease both}@keyframes card-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* V4: paises arriba, continentes debajo, antes del mapa */
+.countries-header{margin:0 0 14px}
+.countries{justify-content:center;margin-bottom:24px}
+.regions{border-top:1px solid var(--line);padding-top:22px;margin-bottom:22px}
+@media(max-width:600px){.countries{margin-bottom:20px}.regions{padding-top:18px}}
+
+/* V6: navegación horizontal y reducción de altura en teléfonos */
+@media (max-width:700px){
+.shell{padding-left:14px;padding-right:14px}
+.countries-header{margin:0 0 10px;align-items:center;gap:10px}
+.countries-header h2{font-size:clamp(27px,7vw,33px)}
+.countries-header span{flex-shrink:0;font-size:11px}
+.countries{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;margin:0 -14px 13px;padding:3px 14px 10px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.countries::-webkit-scrollbar,.regions::-webkit-scrollbar{display:none}
+.country{flex:0 0 auto;white-space:nowrap;padding:11px 14px;min-height:42px;scroll-snap-align:start;font-size:12px}
+.map-top{padding:12px 13px 4px}.map-kicker{font-size:8px}
+.map-top #reset{padding:8px 9px;font-size:9px!important}
+#map{min-height:0}.map-bottom{padding:10px 13px;gap:8px}
+.map-bottom small{font-size:8px;margin-bottom:3px}.map-bottom strong{font-size:25px}.legend{font-size:9px}
+.regions{display:flex;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:8px;margin:0;padding:13px 0 5px}
+.region{flex:0 0 auto;padding:10px 13px}.footnote{margin-top:13px}
+}
+
+/* Integración Casa Cortés: transparencia sobre la fotografía original */
+html,body{background:transparent!important;color:#f3eee6}
+.shell.embedded-shell{max-width:none;padding:12px clamp(10px,2.5vw,34px) 28px}
+.map-frame{background:rgba(14,21,18,.18);border-color:rgba(235,224,207,.35);backdrop-filter:blur(1px)}
+.loading{background:rgba(20,26,23,.65)}
+.map-card{background:rgba(23,30,27,.94)}
+.country-path.base{fill:#798477;fill-opacity:.77}
+.country-path.present{fill-opacity:.95}
+.countries-header{margin-top:8px}
+.footnote{color:#eee4d5}
+@media(max-width:600px){.shell.embedded-shell{padding:8px 9px 20px}.countries-header{margin-top:4px}.map-frame{background:rgba(14,21,18,.12)}}
+
+/* V7 — carrusel compacto también en escritorio; mapa translúcido sobre fotografía */
+.shell.embedded-shell{padding:4px clamp(8px,1.5vw,22px) 10px}
+.countries-header{margin:0 0 7px}
+.countries-header h2{font-size:clamp(22px,2.1vw,29px)}
+.countries{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(197,161,107,.5) transparent;margin:0 0 9px;padding:2px 1px 8px}
+.country{flex:0 0 auto;white-space:nowrap;padding:9px 13px;min-height:36px;scroll-snap-align:start}
+.regions{padding-top:10px;margin-bottom:8px;gap:7px}
+.region{padding:8px 15px}
+.map-frame{background:transparent!important;backdrop-filter:none!important;border-color:rgba(235,224,207,.22)}
+.map-top{padding:9px 15px 0}
+.map-holder{margin-top:-20px}
+.map-bottom{padding:9px 15px;background:rgba(8,12,10,.17);border-color:rgba(235,224,207,.22)}
+.country-path.base{fill:rgba(31,45,36,.12)!important;fill-opacity:1!important;stroke:rgba(242,236,219,.55);stroke-width:.75}
+.country-path.present{fill:rgba(193,147,76,.48)!important;fill-opacity:1!important;stroke:rgba(245,212,154,.9)}
+.country-path.present:hover{fill:rgba(223,189,130,.74)!important}
+.country-path.selected{fill:rgba(247,213,150,.86)!important}
+.map-card{background:rgba(23,30,27,.94)}
+.loading{background:rgba(20,26,23,.5)}
+@media(min-width:701px){.countries::-webkit-scrollbar{height:4px}.countries::-webkit-scrollbar-thumb{background:rgba(197,161,107,.45);border-radius:8px}}
+@media(max-width:700px){.shell.embedded-shell{padding:4px 8px 12px}.countries{margin:0 -8px 7px;padding:2px 8px 7px;scrollbar-width:none}.countries::-webkit-scrollbar{display:none}.map-holder{margin-top:-7px}.map-top{padding:9px 10px 0}.regions{margin:0;padding:9px 0 4px}.country{min-height:40px}.map-bottom{padding:9px 10px}}
+
+/* V8: Fondo fotografico real dentro del iframe.
+   Los iframes pueden componer el fondo transparente como negro;
+   renderizar la misma fotografia dentro del documento garantiza su visibilidad. */
+html{background:transparent!important}
+body{background:linear-gradient(rgba(8,12,10,.24),rgba(8,12,10,.24)),url('assets/images/mapa.webp') center center / cover fixed no-repeat!important}
+.map-frame,.map-holder,#map{background:transparent!important}
+#map-layer{background:transparent!important}
+.country-path.base{fill:rgba(31,45,36,.06)!important}
+.country-path.present{fill:rgba(193,147,76,.52)!important}
