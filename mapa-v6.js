@@ -4,7 +4,7 @@ const groups={
  europe:[['276','Alemania'],['040','Austria'],['056','Bélgica'],['191','Croacia'],['250','Francia'],['372','Irlanda'],['380','Italia'],['528','Países Bajos'],['196','República de Chipre'],['752','Suecia'],['756','Suiza']],
  asia:[['158','Taiwán']],oceania:[['036','Australia']]
 };
-const importers={'840':'Back Bar Project','158':'Drinking Life'};
+const importers={'484':'Casa Cortés','840':'Back Bar Project','276':'Right Spirits Germany','040':'Delicando Spirits','056':'ADS Group','191':'Fine Stvari','250':'Vintage Spirit Garage','372':'Comans Beverages','380':'Pallini','528':'Right Spirits','196':'Vassos Eliades','752':'Barkonsult','756':'Lean Services','158':'Drinking Life','036':'Mextrade'};
 const all=Object.values(groups).flat();const names=new Map(all);const ids=new Set(names.keys());
 let region='world',selected=null,features=[],path,projection,layer,svg;
 let currentTransform=d3.zoomIdentity;
