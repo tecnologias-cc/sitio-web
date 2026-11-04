@@ -82,3 +82,11 @@ body{background:linear-gradient(rgba(8,12,10,.24),rgba(8,12,10,.24)),url('assets
  .map-top #reset{padding:5px 9px}
  .map-holder{margin-top:-22px}
 }
+
+
+/* Ampliar el mapa mundial en teléfonos sin cambiar el zoom de escritorio */
+@media(max-width:700px){
+ .map-holder{height:clamp(290px,85vw,440px);display:flex;align-items:center;justify-content:center}
+ #map{width:145%!important;max-width:none!important;min-width:145%;height:auto!important;
+      flex:none;transform:translateX(0);transform-origin:center center}
+}
