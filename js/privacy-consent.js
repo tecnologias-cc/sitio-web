@@ -1,0 +1,9 @@
+/* Preferencias de privacidad Casa Cortés. No se cargan etiquetas de seguimiento sin configuración y autorización. */
+(function(){'use strict';var KEY='ccPrivacyConsentV1';var panel=document.getElementById('cc-privacy-panel');if(!panel)return;
+var options=document.getElementById('cc-privacy-options'),a=document.getElementById('cc-analytics'),m=document.getElementById('cc-marketing'),save=document.getElementById('cc-save'),config=document.getElementById('cc-configure');
+function read(){try{var v=JSON.parse(localStorage.getItem(KEY)||'null');return v&&typeof v.analytics==='boolean'&&typeof v.marketing==='boolean'?v:null}catch(e){return null}}
+function dispatch(v){window.ccPrivacyPreferences={analytics:!!v.analytics,marketing:!!v.marketing};window.dispatchEvent(new CustomEvent('cc:privacy-updated',{detail:window.ccPrivacyPreferences}));}
+function persist(v){try{localStorage.setItem(KEY,JSON.stringify({analytics:!!v.analytics,marketing:!!v.marketing,updated:new Date().toISOString()}))}catch(e){}dispatch(v);panel.hidden=true;}
+function open(){var v=read();a.checked=v?!!v.analytics:false;m.checked=v?!!v.marketing:false;options.hidden=true;save.hidden=true;config.hidden=false;panel.hidden=false;}
+document.getElementById('cc-reject').addEventListener('click',function(){persist({analytics:false,marketing:false})});document.getElementById('cc-accept').addEventListener('click',function(){persist({analytics:true,marketing:true})});config.addEventListener('click',function(){options.hidden=false;save.hidden=false;config.hidden=true});save.addEventListener('click',function(){persist({analytics:a.checked,marketing:m.checked})});document.querySelectorAll('[data-cc-privacy-open]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();open()})});var stored=read();if(stored){dispatch(stored)}else{open()}
+})();

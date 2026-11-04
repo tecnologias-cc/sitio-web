@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /mapa-v6.html
+Sitemap: https://casacortes.mx/sitemap.xml

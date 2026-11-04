@@ -220,3 +220,14 @@ h1,h2,h3,.legacy-copy h2,.section-head h2{font-family:var(--display);font-weight
 .world-slider:has(.world-map-v6-panel){height:clamp(530px,51vw,690px)}
 .world-map-v6-frame{height:calc(100% - 24px)}
 }
+
+/* Acceso a tienda — opción B, discreto y accesible */
+.site-header nav{gap:clamp(10px,1.5vw,25px);align-items:center}
+.site-header nav .nav-shop-link{display:inline-flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap;padding:10px 16px;border:1px solid #c4a06b;color:#ead7b9;border-radius:2px;font-size:11px;font-weight:600;letter-spacing:.11em;line-height:1.1;transition:background .2s,color .2s,border-color .2s}
+.site-header nav .nav-shop-link:hover,.site-header nav .nav-shop-link:focus-visible{background:#c4a06b;color:#151512;border-color:#c4a06b}
+@media(max-width:800px){.site-header nav{align-items:stretch;gap:0}.site-header nav .nav-shop-link{margin-top:16px;padding:15px 18px;align-self:stretch;font-size:13px;text-align:center;border-color:#c4a06b}}
+
+/* Botón de tienda en footer: variante B adaptada al fondo claro */
+footer a.footer-shop-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:0 auto 18px;padding:13px 25px;border:1px solid #a77f45;border-radius:2px;background:transparent;color:#332719;text-decoration:none;font-size:12px;font-weight:650;letter-spacing:.12em;line-height:1.2;transition:background .2s ease,color .2s ease,border-color .2s ease}
+footer a.footer-shop-link:hover,footer a.footer-shop-link:focus-visible{background:#a77f45;color:#fff;border-color:#a77f45}
+@media(max-width:800px){footer a.footer-shop-link{padding:14px 25px;min-height:44px;font-size:12px}}

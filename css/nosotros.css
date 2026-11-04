@@ -133,3 +133,10 @@ body.map-opened{overflow:hidden}
  .process-slide p{line-height:1.65;}
  .process-slide p+p{margin-top:.8rem;}
 }
+
+/* Corrección de contraste: controles de la página Nosotros */
+.communities-pdf .map-open{color:#171610!important;border-bottom-color:#171610!important;opacity:1!important;text-shadow:none!important}
+.communities-pdf .map-open:hover,.communities-pdf .map-open:focus-visible{color:#7b582c!important;border-bottom-color:#7b582c!important}
+.process-pdf .slider-arrow,.communities-pdf .community-arrow{display:flex!important;align-items:center!important;justify-content:center!important;color:#171610!important;background:rgba(255,255,255,.93)!important;opacity:1!important;line-height:1!important;font-family:Arial,sans-serif!important;font-size:24px!important;text-shadow:none!important;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+.process-pdf .slider-arrow:hover,.communities-pdf .community-arrow:hover{background:#fff!important;box-shadow:0 3px 16px rgba(0,0,0,.22)}
+.process-pdf .slider-arrow:focus-visible,.communities-pdf .community-arrow:focus-visible,.communities-pdf .map-open:focus-visible{outline:2px solid #9a703c;outline-offset:3px}
