@@ -259,3 +259,19 @@ footer a.footer-shop-link:hover,footer a.footer-shop-link:focus-visible{backgrou
  .world-slider:has(.world-map-v6-panel){height:clamp(680px,165vw,850px)}
  .world-map-v6-frame{height:calc(100% - 25px)}
 }
+
+
+/* Fase 3: navegación visible por teclado y preferencias de movimiento. */
+:where(a,button,input,select,textarea,[role="button"],[tabindex]):focus-visible{
+  outline:2px solid #ad844b;
+  outline-offset:4px;
+}
+@media (prefers-reduced-motion: reduce){
+  html:focus-within{scroll-behavior:auto}
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}

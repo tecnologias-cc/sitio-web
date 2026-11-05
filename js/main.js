@@ -16,6 +16,23 @@
       toggle.setAttribute('aria-expanded','false');
       toggle.setAttribute('aria-label','Abrir menú');
     }));
+    // Cierre accesible del menú: Escape devuelve el foco al botón.
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.setAttribute('aria-label','Abrir menú');
+        toggle.focus();
+      }
+    });
+    // Si cambia a escritorio, restablecer el estado accesible.
+    window.addEventListener('resize',()=>{
+      if(window.innerWidth>800&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+        toggle.setAttribute('aria-label','Abrir menú');
+      }
+    });
   }
 
   // Galería de Inicio. Solo se inicializa cuando existe en la página.
