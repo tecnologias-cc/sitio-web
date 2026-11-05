@@ -89,14 +89,15 @@
   const no=document.querySelector('#ageNo');
   if(gate&&yes&&no){
     const key='casaCortesAgeVerified';
+    const ageTTL=180*24*60*60*1000;
     let verified=false;
-    try{verified=localStorage.getItem(key)==='yes'}catch(e){}
+    try{const stored=localStorage.getItem(key);const parsed=JSON.parse(stored);verified=!!(parsed&&parsed.verified===true&&Number.isFinite(parsed.at)&&Date.now()>=parsed.at&&Date.now()-parsed.at<ageTTL)}catch(e){}
     const closeGate=()=>{gate.hidden=true;document.body.classList.remove('age-locked')};
     if(verified) closeGate();
     else {
       requestAnimationFrame(()=>yes.focus());
       yes.addEventListener('click',()=>{
-        try{localStorage.setItem(key,'yes')}catch(e){}
+        try{localStorage.setItem(key,JSON.stringify({verified:true,at:Date.now()}))}catch(e){}
         closeGate();
       });
       no.addEventListener('click',()=>window.location.href='https://www.google.com/');
