@@ -8,11 +8,11 @@ function ageOpen(){return !!(gate&&!gate.hidden);}
 function read(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');const t=Date.parse(v?.updated);return v&&typeof v.analytics==='boolean'&&typeof v.marketing==='boolean'&&Number.isFinite(t)&&Date.now()>=t&&Date.now()-t<TTL?v:null}catch(e){return null}}
 function dispatch(v){window.ccPrivacyPreferences={analytics:!!v.analytics,marketing:!!v.marketing};window.dispatchEvent(new CustomEvent('cc:privacy-updated',{detail:window.ccPrivacyPreferences}));}
 function persist(v){try{localStorage.setItem(KEY,JSON.stringify({analytics:!!v.analytics,marketing:!!v.marketing,updated:new Date().toISOString()}))}catch(e){}dispatch(v);panel.hidden=true;}
-function open(){const v=read();a.checked=v?!!v.analytics:false;m.checked=v?!!v.marketing:false;options.hidden=true;save.hidden=true;config.hidden=false;panel.hidden=ageOpen();}
+function open(){const v=read();a.checked=v?!!v.analytics:false;m.checked=v?!!v.marketing:false;options.hidden=true;save.hidden=true;config.hidden=false;document.getElementById('cc-accept').hidden=false;document.getElementById('cc-reject').hidden=false;panel.hidden=ageOpen();}
 function showWhenEligible(){if(!read()&&!ageOpen())open();}
 document.getElementById('cc-reject').addEventListener('click',()=>persist({analytics:false,marketing:false}));
-document.getElementById('cc-accept').addEventListener('click',()=>persist({analytics:true,marketing:false}));
-config.addEventListener('click',()=>{options.hidden=false;save.hidden=false;config.hidden=true;});
+document.getElementById('cc-accept').addEventListener('click',()=>persist({analytics:true,marketing:true}));
+config.addEventListener('click',()=>{options.hidden=false;save.hidden=false;config.hidden=true;document.getElementById('cc-accept').hidden=true;document.getElementById('cc-reject').hidden=true;});
 save.addEventListener('click',()=>persist({analytics:a.checked,marketing:m.checked}));
 document.querySelectorAll('[data-cc-privacy-open]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();open();}));
 const stored=read();if(stored)dispatch(stored);else showWhenEligible();
